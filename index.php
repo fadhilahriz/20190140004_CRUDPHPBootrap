@@ -5,7 +5,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">    <title>Data Mahasiswa</title>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css">
+    <title>Data Mahasiswa</title>
   </head>
   
   <body>
@@ -26,9 +28,53 @@
     </div>
     </nav>
     <!-- END NAVBAR -->
+    <div class="container data-mahasiswa mt-5">
+        <!-- Modal -->
+        <!-- Button untuk trigger modal -->
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#tambahData">
+        Tambah Data
+        </button>
+        <!-- Modal tambah data -->
+        <div class="modal fade" id="tambahData" tabindex="-1" aria-labelledby="tambahDataLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <!-- Membuat form dengan method post untuk memanggil file store.php -->
+                    <form method="POST" action="store.php" name="form">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="tambahDataLabel">Modal title</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <!-- Input Nama -->
+                            <div class="mb-3">
+                                <label for="nama" class="form-label">Nama</label>
+                                <input type="text" class="form-control" id="nama" placeholder="Masukkan Nama Mahasiswa" name="nama" required>
+                            </div>
+                            <!-- Input NIM -->
+                            <div class="mb-3">
+                                <label for="NIM" class="form-label">NIM</label>
+                                <input type="text" class="form-control" id="NIM" placeholder="Masukkan NIM Mahasiswa" name="nim" required>
+                            </div>
+                            <!-- Input Alamat -->
+                            <div class="mb-3">
+                                <label for="Alamat" class="form-label">Alamat</label>
+                                <!--Menggunakan textarea sebagai input alamat-->
+                                <textarea type="text" class="form-control" id="Alamat" placeholder="Masukkan Alamat Mahasiswa" name="alamat" required></textarea>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <!--Button Close Modal-->
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <!--Button Tambah Data-->
+                            <button type="submit" class="btn btn-primary" value="SIMPAN">Tambah</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     <!-- DATA -->
     <div class="container data-mahasiswa mt-5">
-        <table class="table table-striped">
+        <table class="table table-striped" id="tabelMahasiswa">
             <thead>
                 <tr>
                     <th scope="col">No.</th>
@@ -63,5 +109,13 @@
         </table>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
-  </body>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap5.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#tabelMahasiswa').DataTable();
+        } );
+    </script>
+</body>
 </html> 
