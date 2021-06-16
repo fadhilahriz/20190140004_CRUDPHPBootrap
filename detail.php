@@ -34,7 +34,7 @@
     $id = $_GET['id'];
 
     $mahasiswa = mysqli_query($koneksi, "select * from mahasiswa where id='$id'");
-    while ($data = mysqli_fetch_array($mahasiswa)) {
+    while ($data = mysqli_fetch_assoc($mahasiswa)) {
     ?>
         <div class="container mt-5">
             <p><a href="index.php">Home</a> / Detail Mahasiswa / <?php echo $data['nama'] ?></p>
@@ -46,7 +46,7 @@
                     <p>Nama : <?php echo $data['nama'] ?></p>
                     <p>NIM : <?php echo $data['nim'] ?></p>
                     <p>Alamat : <?php echo $data['alamat'] ?></p>
-                    <button class="btn btn-primary">Cetak</button>
+                    <a href="print.php?id=<?php echo $data['id'] ?>" class="btn btn-primary btn-sm text-white">Cetak</a>
                 </div>
             </div>
         </div>
