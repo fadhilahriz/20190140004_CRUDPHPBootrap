@@ -99,7 +99,7 @@
                         <td>
                             <a href="detail.php?id=<?php echo $data['id'];?>" class="btn btn-success btn-sm text-white">Detail</a>
                             <a href="edit.php?id=<?php echo $data['id'];?>" class="btn btn-warning btn-sm text-white">Edit</a>
-                            <a href="delete.php?id<?php echo $data['id'];?>" class="btn btn-danger btn-sm" onclick="return confirm('Apakah anda yakin untuk menghapus data?')">Hapus</a>
+                            <a href="delete.php?id=<?php echo $data['id'];?>" class="btn btn-danger btn-sm" onclick="return confirm('Apakah anda yakin untuk menghapus data?')">Hapus</a>
                         </td>
                     </tr>
                     <?php
